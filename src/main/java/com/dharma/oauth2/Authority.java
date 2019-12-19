@@ -1,4 +1,4 @@
-package com.learn.oauth2;
+package com.dharma.oauth2;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

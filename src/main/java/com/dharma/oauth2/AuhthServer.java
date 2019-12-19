@@ -1,4 +1,4 @@
-package com.learn.oauth2;
+package com.dharma.oauth2;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

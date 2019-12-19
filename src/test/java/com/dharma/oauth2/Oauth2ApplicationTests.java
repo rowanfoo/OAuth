@@ -1,4 +1,4 @@
-package com.learn.oauth2;
+package com.dharma.oauth2;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
