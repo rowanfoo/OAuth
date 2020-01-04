@@ -1,5 +1,6 @@
-package com.dharma.oauth2;
+package com.dharma.oauth2.config;
 
+import com.dharma.oauth2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +35,11 @@ public class AuhthServer extends AuthorizationServerConfigurerAdapter {
     PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
+
+    //    @Autowired
+//    private PasswordEncoder passwordEncoder;
+    @Autowired
+    PasswordEncoder mouserPasswordEncoder;
 
     private TokenStore tokenStore;
 
@@ -129,14 +135,15 @@ public class AuhthServer extends AuthorizationServerConfigurerAdapter {
 //        //.checkTokenAccess("isAuthenticated()")
 //
 //    }
-    @Autowired
-    PasswordEncoder passwordEncoder;
+
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
                 .tokenKeyAccess("permitAll()")
                 .checkTokenAccess("permitAll()")
                 .allowFormAuthenticationForClients().passwordEncoder(passwordEncoder());
+        //.allowFormAuthenticationForClients().passwordEncoder(passwordEncoder);
 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -215,7 +222,7 @@ public class AuhthServer extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     public void authenticationManager(AuthenticationManagerBuilder builder) throws Exception {
-        builder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+        builder.userDetailsService(userDetailsService).passwordEncoder(mouserPasswordEncoder);
     }
 
     @Bean

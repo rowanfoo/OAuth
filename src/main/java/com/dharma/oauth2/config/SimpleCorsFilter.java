@@ -1,4 +1,4 @@
-package com.dharma.oauth2;
+package com.dharma.oauth2.config;
 
 public class SimpleCorsFilter{}
 
